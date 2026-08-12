@@ -1,0 +1,112 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C00000000000000000000001 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000001 /* Models.swift */; };
+		C00000000000000000000002 /* PersistenceModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000002 /* PersistenceModels.swift */; };
+		C00000000000000000000003 /* SerienVollstaendigkeitsprueferApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000003 /* SerienVollstaendigkeitsprueferApp.swift */; };
+		C00000000000000000000004 /* EpisodeComparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000004 /* EpisodeComparator.swift */; };
+		C00000000000000000000005 /* EpisodeParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000005 /* EpisodeParser.swift */; };
+		C00000000000000000000006 /* FileScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000006 /* FileScanner.swift */; };
+		C00000000000000000000007 /* SeriesMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000007 /* SeriesMatcher.swift */; };
+		C00000000000000000000008 /* TVMazeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000008 /* TVMazeClient.swift */; };
+		C00000000000000000000009 /* ExportWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000009 /* ExportWriter.swift */; };
+		C00000000000000000000010 /* ScanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000010 /* ScanViewModel.swift */; };
+		C00000000000000000000011 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000011 /* ContentView.swift */; };
+		C00000000000000000000012 /* FolderAccessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000014 /* FolderAccessManager.swift */; };
+		C00000000000000000000013 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000015 /* Assets.xcassets */; };
+		C00000000000000000000014 /* AppLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000016 /* AppLanguage.swift */; };
+		C00000000000000000000101 /* EpisodeParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000001 /* EpisodeParserTests.swift */; };
+		C00000000000000000000102 /* EpisodeComparatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000002 /* EpisodeComparatorTests.swift */; };
+		C00000000000000000000103 /* FileScannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000003 /* FileScannerTests.swift */; };
+		C00000000000000000000104 /* ExportWriterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000004 /* ExportWriterTests.swift */; };
+		C00000000000000000000105 /* FolderAccessManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000005 /* FolderAccessManagerTests.swift */; };
+		C00000000000000000000106 /* TVMazeClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000006 /* TVMazeClientTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A00000000000000000000001 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sources/SerienVollstaendigkeitspruefer/Domain/Models.swift; sourceTree = SOURCE_ROOT; };
+		A00000000000000000000002 /* PersistenceModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sources/SerienVollstaendigkeitspruefer/Persistence/PersistenceModels.swift; sourceTree = SOURCE_ROOT; };
+		A00000000000000000000003 /* SerienVollstaendigkeitsprueferApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sources/SerienVollstaendigkeitspruefer/SerienVollstaendigkeitsprueferApp.swift; sourceTree = SOURCE_ROOT; };
+		A00000000000000000000004 /* EpisodeComparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sources/SerienVollstaendigkeitspruefer/Services/EpisodeComparator.swift; sourceTree = SOURCE_ROOT; };
+		A00000000000000000000005 /* EpisodeParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sources/SerienVollstaendigkeitspruefer/Services/EpisodeParser.swift; sourceTree = SOURCE_ROOT; };
+		A00000000000000000000006 /* FileScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sources/SerienVollstaendigkeitspruefer/Services/FileScanner.swift; sourceTree = SOURCE_ROOT; };
+		A00000000000000000000007 /* SeriesMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sources/SerienVollstaendigkeitspruefer/Services/SeriesMatcher.swift; sourceTree = SOURCE_ROOT; };
+		A00000000000000000000008 /* TVMazeClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sources/SerienVollstaendigkeitspruefer/Services/TVMazeClient.swift; sourceTree = SOURCE_ROOT; };
+		A00000000000000000000009 /* ExportWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sources/SerienVollstaendigkeitspruefer/Support/ExportWriter.swift; sourceTree = SOURCE_ROOT; };
+		A00000000000000000000010 /* ScanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sources/SerienVollstaendigkeitspruefer/ViewModels/ScanViewModel.swift; sourceTree = SOURCE_ROOT; };
+		A00000000000000000000011 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sources/SerienVollstaendigkeitspruefer/Views/ContentView.swift; sourceTree = SOURCE_ROOT; };
+		A00000000000000000000012 /* SerienVollstaendigkeitspruefer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SerienVollstaendigkeitspruefer.entitlements; sourceTree = SOURCE_ROOT; };
+		A00000000000000000000013 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
+		A00000000000000000000014 /* FolderAccessManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sources/SerienVollstaendigkeitspruefer/Services/FolderAccessManager.swift; sourceTree = SOURCE_ROOT; };
+		A00000000000000000000015 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Sources/SerienVollstaendigkeitspruefer/Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		A00000000000000000000016 /* AppLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sources/SerienVollstaendigkeitspruefer/Support/AppLanguage.swift; sourceTree = SOURCE_ROOT; };
+		B00000000000000000000001 /* EpisodeParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests/SerienVollstaendigkeitsprueferTests/EpisodeParserTests.swift; sourceTree = SOURCE_ROOT; };
+		B00000000000000000000002 /* EpisodeComparatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests/SerienVollstaendigkeitsprueferTests/EpisodeComparatorTests.swift; sourceTree = SOURCE_ROOT; };
+		B00000000000000000000003 /* FileScannerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests/SerienVollstaendigkeitsprueferTests/FileScannerTests.swift; sourceTree = SOURCE_ROOT; };
+		B00000000000000000000004 /* ExportWriterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests/SerienVollstaendigkeitsprueferTests/ExportWriterTests.swift; sourceTree = SOURCE_ROOT; };
+		B00000000000000000000005 /* FolderAccessManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests/SerienVollstaendigkeitsprueferTests/FolderAccessManagerTests.swift; sourceTree = SOURCE_ROOT; };
+		B00000000000000000000006 /* TVMazeClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests/SerienVollstaendigkeitsprueferTests/TVMazeClientTests.swift; sourceTree = SOURCE_ROOT; };
+		E00000000000000000000001 /* SerienVollstaendigkeitspruefer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = SerienVollstaendigkeitspruefer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E00000000000000000000002 /* SerienVollstaendigkeitsprueferTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = SerienVollstaendigkeitsprueferTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D00000000000000000000001 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		D00000000000000000000002 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F00000000000000000000001 = {isa = PBXGroup; children = (F00000000000000000000002 /* App */, F00000000000000000000003 /* Tests */, F00000000000000000000004 /* Products */); sourceTree = "<group>"; };
+		F00000000000000000000002 /* App */ = {isa = PBXGroup; children = (A00000000000000000000001, A00000000000000000000002, A00000000000000000000003, A00000000000000000000004, A00000000000000000000005, A00000000000000000000006, A00000000000000000000007, A00000000000000000000008, A00000000000000000000009, A00000000000000000000010, A00000000000000000000011, A00000000000000000000012, A00000000000000000000013, A00000000000000000000014, A00000000000000000000015, A00000000000000000000016); name = App; sourceTree = "<group>"; };
+		F00000000000000000000003 /* Tests */ = {isa = PBXGroup; children = (B00000000000000000000001, B00000000000000000000002, B00000000000000000000003, B00000000000000000000004, B00000000000000000000005, B00000000000000000000006); name = Tests; sourceTree = "<group>"; };
+		F00000000000000000000004 /* Products */ = {isa = PBXGroup; children = (E00000000000000000000001, E00000000000000000000002); name = Products; sourceTree = "<group>"; };
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F10000000000000000000001 /* Serien-Vollständigkeitsprüfer */ = {isa = PBXNativeTarget; buildConfigurationList = F20000000000000000000001; buildPhases = (D00000000000000000000001, D10000000000000000000001, D20000000000000000000001); buildRules = (); dependencies = (); name = "Serien-Vollständigkeitsprüfer"; productName = SerienVollstaendigkeitspruefer; productReference = E00000000000000000000001; productType = "com.apple.product-type.application"; };
+		F10000000000000000000002 /* SerienVollstaendigkeitsprueferTests */ = {isa = PBXNativeTarget; buildConfigurationList = F20000000000000000000002; buildPhases = (D00000000000000000000002, D10000000000000000000002); buildRules = (); dependencies = (F30000000000000000000001); name = SerienVollstaendigkeitsprueferTests; productName = SerienVollstaendigkeitsprueferTests; productReference = E00000000000000000000002; productType = "com.apple.product-type.bundle.unit-test"; };
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F40000000000000000000001 /* Project object */ = {isa = PBXProject; attributes = { LastSwiftUpdateCheck = 2600; LastUpgradeCheck = 2600; TargetAttributes = { F10000000000000000000001 = { CreatedOnToolsVersion = 26.0; }; F10000000000000000000002 = { CreatedOnToolsVersion = 26.0; TestTargetID = F10000000000000000000001; }; }; }; buildConfigurationList = F20000000000000000000003; compatibilityVersion = "Xcode 14.0"; developmentRegion = de; hasScannedForEncodings = 0; knownRegions = (de, Base); mainGroup = F00000000000000000000001; productRefGroup = F00000000000000000000004; projectDirPath = ""; projectRoot = ""; targets = (F10000000000000000000001, F10000000000000000000002); };
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D20000000000000000000001 /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (C00000000000000000000013); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D10000000000000000000001 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (C00000000000000000000001, C00000000000000000000002, C00000000000000000000003, C00000000000000000000004, C00000000000000000000005, C00000000000000000000006, C00000000000000000000007, C00000000000000000000008, C00000000000000000000009, C00000000000000000000010, C00000000000000000000011, C00000000000000000000012, C00000000000000000000014); runOnlyForDeploymentPostprocessing = 0; };
+		D10000000000000000000002 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (C00000000000000000000101, C00000000000000000000102, C00000000000000000000103, C00000000000000000000104, C00000000000000000000105, C00000000000000000000106); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F30000000000000000000001 = {isa = PBXTargetDependency; target = F10000000000000000000001; targetProxy = F50000000000000000000001; };
+/* End PBXTargetDependency section */
+
+/* Begin PBXContainerItemProxy section */
+		F50000000000000000000001 = {isa = PBXContainerItemProxy; containerPortal = F40000000000000000000001; proxyType = 1; remoteGlobalIDString = F10000000000000000000001; remoteInfo = "Serien-Vollständigkeitsprüfer"; };
+/* End PBXContainerItemProxy section */
+
+/* Begin XCBuildConfiguration section */
+		F60000000000000000000001 /* Debug */ = {isa = XCBuildConfiguration; buildSettings = { CLANG_ENABLE_MODULES = YES; MACOSX_DEPLOYMENT_TARGET = 14.0; SDKROOT = macosx; SWIFT_VERSION = 6.0; }; name = Debug; };
+		F60000000000000000000002 /* Release */ = {isa = XCBuildConfiguration; buildSettings = { CLANG_ENABLE_MODULES = YES; MACOSX_DEPLOYMENT_TARGET = 14.0; SDKROOT = macosx; SWIFT_VERSION = 6.0; }; name = Release; };
+		F60000000000000000000003 /* Debug */ = {isa = XCBuildConfiguration; buildSettings = { ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; CODE_SIGN_ENTITLEMENTS = SerienVollstaendigkeitspruefer.entitlements; CODE_SIGN_STYLE = Automatic; DEVELOPMENT_TEAM = ""; ENABLE_APP_SANDBOX = YES; ENABLE_TESTABILITY = YES; INFOPLIST_FILE = Info.plist; MACOSX_DEPLOYMENT_TARGET = 14.0; PRODUCT_BUNDLE_IDENTIFIER = com.shadowenemy.serienvollstaendigkeitspruefer; PRODUCT_MODULE_NAME = SerienVollstaendigkeitspruefer; PRODUCT_NAME = SerienVollstaendigkeitspruefer; SWIFT_VERSION = 6.0; }; name = Debug; };
+		F60000000000000000000004 /* Release */ = {isa = XCBuildConfiguration; buildSettings = { ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; CODE_SIGN_ENTITLEMENTS = SerienVollstaendigkeitspruefer.entitlements; CODE_SIGN_STYLE = Automatic; DEVELOPMENT_TEAM = ""; ENABLE_APP_SANDBOX = YES; INFOPLIST_FILE = Info.plist; MACOSX_DEPLOYMENT_TARGET = 14.0; PRODUCT_BUNDLE_IDENTIFIER = com.shadowenemy.serienvollstaendigkeitspruefer; PRODUCT_MODULE_NAME = SerienVollstaendigkeitspruefer; PRODUCT_NAME = SerienVollstaendigkeitspruefer; SWIFT_COMPILATION_MODE = wholemodule; SWIFT_VERSION = 6.0; }; name = Release; };
+		F60000000000000000000005 /* Debug */ = {isa = XCBuildConfiguration; buildSettings = { BUNDLE_LOADER = "$(TEST_HOST)"; CODE_SIGN_STYLE = Automatic; GENERATE_INFOPLIST_FILE = YES; MACOSX_DEPLOYMENT_TARGET = 14.0; PRODUCT_BUNDLE_IDENTIFIER = com.shadowenemy.serienvollstaendigkeitspruefer.tests; PRODUCT_MODULE_NAME = SerienVollstaendigkeitsprueferTests; PRODUCT_NAME = SerienVollstaendigkeitsprueferTests; SWIFT_VERSION = 6.0; TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SerienVollstaendigkeitspruefer.app/Contents/MacOS/SerienVollstaendigkeitspruefer"; }; name = Debug; };
+		F60000000000000000000006 /* Release */ = {isa = XCBuildConfiguration; buildSettings = { BUNDLE_LOADER = "$(TEST_HOST)"; CODE_SIGN_STYLE = Automatic; GENERATE_INFOPLIST_FILE = YES; MACOSX_DEPLOYMENT_TARGET = 14.0; PRODUCT_BUNDLE_IDENTIFIER = com.shadowenemy.serienvollstaendigkeitspruefer.tests; PRODUCT_MODULE_NAME = SerienVollstaendigkeitsprueferTests; PRODUCT_NAME = SerienVollstaendigkeitsprueferTests; SWIFT_VERSION = 6.0; TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SerienVollstaendigkeitspruefer.app/Contents/MacOS/SerienVollstaendigkeitspruefer"; }; name = Release; };
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F20000000000000000000001 = {isa = XCConfigurationList; buildConfigurations = (F60000000000000000000003, F60000000000000000000004); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		F20000000000000000000002 = {isa = XCConfigurationList; buildConfigurations = (F60000000000000000000005, F60000000000000000000006); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		F20000000000000000000003 = {isa = XCConfigurationList; buildConfigurations = (F60000000000000000000001, F60000000000000000000002); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+/* End XCConfigurationList section */
+	};
+	rootObject = F40000000000000000000001 /* Project object */;
+}
