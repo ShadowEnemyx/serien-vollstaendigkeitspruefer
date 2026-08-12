@@ -193,6 +193,7 @@ struct ContentView: View {
                 filter: $viewModel.filter,
                 selectedSeason: $selectedSeason,
                 availableSeasons: viewModel.availableSeasons,
+                onChooseFolder: viewModel.selectFolder,
                 onChooseDifferentSeries: viewModel.chooseDifferentSeries
             )
             Divider()
@@ -297,6 +298,7 @@ private struct ResultHeader: View {
     @Binding var filter: ResultFilter
     @Binding var selectedSeason: Int?
     let availableSeasons: [Int]
+    let onChooseFolder: () -> Void
     let onChooseDifferentSeries: () -> Void
 
     var body: some View {
@@ -332,6 +334,15 @@ private struct ResultHeader: View {
                     }
                     .frame(width: 155)
                 }
+            }
+
+            HStack {
+                Button(action: onChooseFolder) {
+                    Label(localized("Anderen Serienordner auswählen", "Choose another series folder"), systemImage: "folder.badge.plus")
+                }
+                .buttonStyle(.borderedProminent)
+
+                Spacer()
             }
 
             HStack(spacing: 10) {
