@@ -45,4 +45,18 @@ final class FileScannerTests: XCTestCase {
 
         XCTAssertEqual(Set(output.videoFiles.map(\.fileName)), Set(accepted))
     }
+
+    func testReportsUnavailableRootFolderClearly() async {
+        let unavailable = FileManager.default.temporaryDirectory
+            .appendingPathComponent("missing-series-folder-\(UUID().uuidString)", isDirectory: true)
+
+        do {
+            _ = try await FileScanner().scan(folderURL: unavailable)
+            XCTFail("An unavailable root folder must not be reported as an empty scan.")
+        } catch let error as FileScannerError {
+            XCTAssertEqual(error, .folderUnavailable)
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
+    }
 }

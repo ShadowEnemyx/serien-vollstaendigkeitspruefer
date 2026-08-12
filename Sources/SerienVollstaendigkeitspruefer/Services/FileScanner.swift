@@ -1,5 +1,22 @@
 import Foundation
 
+enum FileScannerError: LocalizedError, Equatable {
+    case folderUnavailable
+    case folderNotReadable
+    case folderIsNotDirectory
+
+    var errorDescription: String? {
+        switch self {
+        case .folderUnavailable:
+            localized("Der Serienordner ist nicht erreichbar. Prüfen Sie die NAS- oder Laufwerksverbindung und wählen Sie den Ordner gegebenenfalls erneut aus.", "The series folder is unavailable. Check the NAS or drive connection and choose the folder again if necessary.")
+        case .folderNotReadable:
+            localized("Der Serienordner kann nicht gelesen werden. Prüfen Sie die Zugriffsrechte der NAS-Freigabe.", "The series folder cannot be read. Check the access rights for the NAS share.")
+        case .folderIsNotDirectory:
+            localized("Der ausgewählte Pfad ist kein Ordner.", "The selected path is not a folder.")
+        }
+    }
+}
+
 struct FileScanner: Sendable {
     /// Bewusste Positivliste: Nur diese regulären Videodateien erscheinen im Scanergebnis.
     /// Untertitel, Bilder, NFO-Dateien, Archive und alle anderen Begleitdateien bleiben außen vor.
@@ -23,6 +40,7 @@ struct FileScanner: Sendable {
         var videoFiles: [LocalEpisodeFile] = []
         var inaccessiblePaths: [String] = []
         let keys: Set<URLResourceKey> = [.isRegularFileKey, .isDirectoryKey, .isSymbolicLinkKey, .isPackageKey, .fileSizeKey]
+        try validateRootFolder(folderURL)
         guard let enumerator = FileManager.default.enumerator(
             at: folderURL,
             includingPropertiesForKeys: Array(keys),
@@ -60,6 +78,22 @@ struct FileScanner: Sendable {
             }
         }
         return FileScanOutput(videoFiles: videoFiles, inaccessiblePaths: inaccessiblePaths)
+    }
+
+    /// A disconnected NAS can otherwise result in an empty enumerator, which
+    /// looks exactly like a folder without video files. Validate the selected
+    /// root before traversing so the user receives an actionable error instead.
+    private static func validateRootFolder(_ folderURL: URL) throws {
+        do {
+            guard try folderURL.checkResourceIsReachable() else { throw FileScannerError.folderUnavailable }
+            let values = try folderURL.resourceValues(forKeys: [.isDirectoryKey, .isReadableKey])
+            guard values.isDirectory == true else { throw FileScannerError.folderIsNotDirectory }
+            guard values.isReadable != false else { throw FileScannerError.folderNotReadable }
+        } catch let error as FileScannerError {
+            throw error
+        } catch {
+            throw FileScannerError.folderUnavailable
+        }
     }
 }
 

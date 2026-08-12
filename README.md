@@ -31,6 +31,10 @@ Eine native SwiftUI-App für macOS 14 oder neuer. Sie prüft einen bewusst ausge
 
 Die App analysiert ausschließlich den ausgewählten Ordner. Sie benennt keine Dateien um, verschiebt oder löscht keine Dateien und lädt keine Medien herunter. Für den Online-Abgleich wird nur eine TVmaze-Suche mit dem erkannten Seriennamen ausgeführt.
 
+### NAS und Netzlaufwerke
+
+Über Finder eingebundene SMB-, AFP- oder NFS-Freigaben funktionieren wie lokale Serienordner. Wähle den Serien-Stammordner direkt auf der Freigabe aus. Ist das NAS beim Prüfen getrennt oder der Ordner nicht lesbar, erscheint ein klarer Verbindungs- oder Rechtehinweis statt eines irreführenden leeren Ergebnisses. Die Oberfläche bleibt während des Scans bedienbar; bei sehr vielen Dateien richtet sich die Dauer nach Netzwerk und NAS.
+
 ### Voraussetzungen und Entwicklung
 
 - macOS 14+
@@ -71,6 +75,10 @@ A native SwiftUI app for macOS 14 and later. It compares one deliberately select
 ### Privacy and safety
 
 The app analyzes only the selected folder. It never renames, moves, or deletes files, and it never downloads media. The online comparison only sends the detected series name to a TVmaze search request.
+
+### NAS and network drives
+
+SMB, AFP, and NFS shares mounted through Finder work like local series folders. Select the series root folder directly on the share. If the NAS disconnects during a check or the folder is not readable, the app shows a clear connection or permissions message rather than a misleading empty result. The interface remains responsive while scanning; scan time for very large folders depends on the network and NAS.
 
 ### Requirements and development
 
