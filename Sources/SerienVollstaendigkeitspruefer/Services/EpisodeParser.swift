@@ -5,16 +5,20 @@ struct EpisodeParser: Sendable {
 
     func parse(fileName: String) -> EpisodeParseResult {
         let stem = URL(fileURLWithPath: fileName).deletingPathExtension().lastPathComponent
-        let lowercased = stem.lowercased()
+        // Release-Namen trennen Staffel und Folge häufig durch Punkte,
+        // Unterstriche, Klammern oder andere Sonderzeichen. Für die Erkennung
+        // zählen sie alle wie Leerzeichen: "S.01_E-02" wird zu "S 01 E 02".
+        let recognitionStem = normalizedForRecognition(stem)
+        let lowercased = recognitionStem.lowercased()
 
         if excludedTerms.contains(where: { lowercased.contains($0) }) {
             return .manualReview(.excludedExtra)
         }
-        if firstMatch(in: stem, pattern: #"(?i)(?:s(?:eason)?\s*\d{1,2}|staffel\s*\d+)\s*[._ -]*complete\b"#) != nil {
+        if firstMatch(in: recognitionStem, pattern: #"(?i)(?:s(?:eason)?\s*\d{1,2}|staffel\s*\d+)\s*complete\b"#) != nil {
             return .manualReview(.seasonPack)
         }
-        if firstMatch(in: stem, pattern: #"(?i)s\d{1,2}\s*e\d{1,3}\s*(?:e|-|–)\s*(?:e\s*)?\d{1,3}"#) != nil ||
-            firstMatch(in: stem, pattern: #"(?i)\d{1,2}\s*x\s*\d{1,3}\s*(?:e|x|-|–)\s*(?:e\s*)?\d{1,3}"#) != nil {
+        if firstMatch(in: recognitionStem, pattern: #"(?i)s\s*\d{1,2}\s*e\s*\d{1,3}\s*(?:e|-|–)\s*(?:e\s*)?\d{1,3}"#) != nil ||
+            firstMatch(in: recognitionStem, pattern: #"(?i)\d{1,2}\s*x\s*\d{1,3}\s*(?:e|x|-|–)\s*(?:e\s*)?\d{1,3}"#) != nil {
             return .manualReview(.multipartEpisode)
         }
 
@@ -25,9 +29,9 @@ struct EpisodeParser: Sendable {
         ]
 
         for pattern in patterns {
-            guard let match = firstMatch(in: stem, pattern: pattern), match.count >= 3,
+            guard let match = firstMatch(in: recognitionStem, pattern: pattern), match.count >= 3,
                   let season = Int(match[1]), let episode = Int(match[2]), season >= 0, episode > 0 else { continue }
-            return .episode(ParsedEpisode(season: season, episode: episode, inferredTitle: inferredTitle(from: stem)))
+            return .episode(ParsedEpisode(season: season, episode: episode, inferredTitle: inferredTitle(from: recognitionStem)))
         }
         return .manualReview(.noEpisodePattern)
     }
@@ -77,6 +81,7 @@ struct EpisodeParser: Sendable {
     }
 
     private func seasonNumber(fromFolderName folderName: String) -> Int? {
+        let normalizedFolderName = normalizedForRecognition(folderName)
         let patterns = [
             #"(?i)^s\s*0*(\d{1,2})$"#,
             #"(?i)^staffel\s*0*(\d{1,2})$"#,
@@ -84,7 +89,7 @@ struct EpisodeParser: Sendable {
             #"^0*(\d{1,2})$"#
         ]
         for pattern in patterns {
-            guard let match = firstMatch(in: folderName, pattern: pattern), match.count >= 2,
+            guard let match = firstMatch(in: normalizedFolderName, pattern: pattern), match.count >= 2,
                   let season = Int(match[1]), season >= 0 else { continue }
             return season
         }
@@ -93,17 +98,25 @@ struct EpisodeParser: Sendable {
 
     private func episodeNumberWithoutSeason(in fileName: String) -> Int? {
         let stem = URL(fileURLWithPath: fileName).deletingPathExtension().lastPathComponent
+        let recognitionStem = normalizedForRecognition(stem)
         let explicitEpisodePatterns = [
             #"(?i)(?:^|[^a-z0-9])e\s*0*(\d{1,3})(?:$|[^0-9])"#,
             #"(?i)(?:^|[^a-z0-9])episode\s*0*(\d{1,3})(?:$|[^0-9])"#,
             #"(?i)(?:^|[^a-z0-9])folge\s*0*(\d{1,3})(?:$|[^0-9])"#,
-            #"(?:^|[._\s-])0*(\d{1,3})$"#
+            #"(?:^|\s)0*(\d{1,3})$"#
         ]
         for pattern in explicitEpisodePatterns {
-            guard let match = firstMatch(in: stem, pattern: pattern), match.count >= 2,
+            guard let match = firstMatch(in: recognitionStem, pattern: pattern), match.count >= 2,
                   let episode = Int(match[1]), episode > 0 else { continue }
             return episode
         }
         return nil
+    }
+
+    private func normalizedForRecognition(_ value: String) -> String {
+        value
+            .components(separatedBy: CharacterSet.alphanumerics.inverted)
+            .filter { !$0.isEmpty }
+            .joined(separator: " ")
     }
 }

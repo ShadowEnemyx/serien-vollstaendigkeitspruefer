@@ -13,6 +13,7 @@ Eine native SwiftUI-App für macOS 14 oder neuer. Sie prüft einen bewusst ausge
 - Ignoriert Untertitel, Bilder, Archive, Metadaten und AppleDouble-Dateien (`._…`).
 - Erkennt Serien anhand des gewählten Stammordners und – bei technischen Ordnernamen – vorrangig anhand der wiederkehrenden Dateinamen.
 - Vergleicht verbindlich über Staffel- und Folgennummer. Eine explizite Kennzeichnung wie `S04E01` im Dateinamen hat Vorrang; der Staffelordner ist der Fallback für Namen ohne Staffelnummer.
+- Erkennt die Staffel-/Folgenkennung auch in kryptischen Release-Namen wie `S.01.E.02`, `S_01__E_02`, `S-01-E-02` oder `[Season-01][Episode_02]`.
 - Meldet vorhandene, fehlende, doppelte, unveröffentlichte und manuell zu prüfende Folgen sowie Specials.
 - Erkennt lokale Schreibweisen mit Umlauten und Umschreibungen wie `Ä/Ae`, `Ö/Oe` und `Ü/Ue` bei der Dateinamenerkennung.
 - Lokaler TVmaze-Cache für sieben Tage mit Offline-Fallback.
@@ -58,6 +59,7 @@ A native SwiftUI app for macOS 14 and later. It compares one deliberately select
 - Ignores subtitles, images, archives, metadata, and AppleDouble files (`._…`).
 - Identifies the series from the selected root folder and, when the folder name is technical, gives repeated video filenames priority.
 - Compares strictly by season and episode number. An explicit filename marker such as `S04E01` wins; the season folder is a fallback for filenames without a season number.
+- Recognizes season/episode markers in release-style filenames such as `S.01.E.02`, `S_01__E_02`, `S-01-E-02`, or `[Season-01][Episode_02]`.
 - Reports present, missing, duplicate, unreleased, and manual-review episodes, plus specials.
 - Recognizes local filename spellings with umlauts and alternatives such as `Ä/Ae`, `Ö/Oe`, and `Ü/Ue`.
 - Seven-day local TVmaze cache with an offline fallback.
